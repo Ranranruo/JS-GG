@@ -1,7 +1,7 @@
 'use strict';
 
 const homepage = (req, res) =>{
-    res.render("home/index");
+    res.render("home/indexPC");
 }
 const loginpage = (req,res)=>{
     res.render("home/login");
