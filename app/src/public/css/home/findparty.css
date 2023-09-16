@@ -1,0 +1,259 @@
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+@font-face {
+    font-family: 'Giants-Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-1@1.1/Giants-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+:root{
+    /* font-weigth */
+    --weight--Thin1: 100;
+    --weight--ExtraLight2: 200;
+    --weight--Light3: 300;
+    --weight--Regular4: 400;
+    --weight--Medium5: 500;
+    --weight--SemiBold6: 600;
+    --weight--Bold7: 700;
+    --weight--ExtraBold8: 800;
+    --weight--Black9: 900;
+    /* font-family */
+    --font--normal: 'Noto Sans KR', sans-serif;
+    --font--giants: 'Giants-Bold';
+    /* --font--giants: 'Giants-Inline';  */
+    /* color */
+        /* white */
+        --color--white01: rgb(255, 255, 255);
+        --color--white02: rgb(245, 245, 245);
+        --color--white03: rgb(235, 235, 235);
+        --color--white04: rgb(225, 225, 225);
+
+        /* black */
+        --color--black01: rgb(7, 8, 9);
+        --color--black02: rgb(27, 28, 29); /* 로고 */
+        --color--black03: rgb(57, 58, 59);
+        --color--black04: rgb(87, 88, 89);
+        --color--black05: rgb(127, 128, 129);
+        --color--black06: rgb(157, 158, 159);
+
+
+        /* blue */
+        --color--blue01: rgb(41, 119, 235);
+}
+*{
+    padding : 0;
+    margin : 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+    color : inherit;
+}
+body{
+    width: 100%;
+    overflow-x: hidden;
+}
+.all{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 270vh;
+    background-color: var(--color--white02);
+}
+nav{
+    width: 100%;
+    height: 85px;
+    background-color: var(--color--white02);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+nav > header{
+    z-index: 100;
+    width: 100%;
+    height: 85px;
+    background-color: var(--color--white01);
+    /* background-color: rgb(231, 234, 238); */
+    /* background-color: white; */
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    /* border-bottom: 30px solid rgb(16, 117, 49); */
+}
+nav > header > .top{
+    /* position: fixed; */
+    width: 1024px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+nav > header > .top > .header-logo{
+    padding-left: 20px;
+    width: 250px;
+    font-family: var(--font--giants);
+    color : rgb(27, 28, 29);
+    font-size: 28px;
+    font-weight: var(--weight--Black9);
+    font-style: italic;
+}
+nav > header > .top > .menu{
+    width: 350px;
+    height: 60px;
+    /* border : 2px solid black; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+nav > header > .top > .menu > li > a{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    font-family: var(--font--normal);
+    color: var(--color--black05);
+    font-weight: var(--weight--Regular4);
+    font-size: 18px;
+}
+nav > header > .top > .menu > li:nth-child(4) > a{
+    color: var(--color--black01);
+}
+nav > header > .top > .menu > li > a::before{
+    display: inline-block;
+    position: absolute;
+    bottom: -11px;
+    width: 100%;
+    height: 10px;
+    content: ' ';
+    border-bottom: 3px solid var(--color--black01);
+    transition: 0.1s;
+}
+nav > header > .top > .menu > li:nth-child(1n+1) > a::before{
+    width: 0px;
+}
+nav > header > .top > .menu > li:nth-child(4) > a::before{
+    width: 100%;
+}
+nav > header > .top > .menu > li > a:hover{
+    color: var(--color--black01);
+}
+nav > header > .top > .menu > li > a:hover::before{
+    width: 100%;
+}
+nav > header > .top > .setting{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    width: 250px;
+}
+/* 다크모드 */
+nav > header > .top > .setting > .darkmod{ 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+}
+nav > header > .top > .setting > .language{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 95px;
+    height: 100%;
+}
+nav > header > .top > .setting > .language > svg{
+    fill: var(--color--blue01);
+    position: relative;
+    top: 1px;
+    height: 100%;
+    width: 20px;
+}
+nav > header > .top > .setting > .language > select{
+    height: 30px;
+    outline: none;
+    font-weight: var(--weight--Medium5);
+    font-family: var(--font--normal);
+    color: var(--color--blue01);
+    border: none;
+    background-color: var(--color--white01);
+}
+/* nav > header > .top > .setting > .language > select:focus{
+    border: none;
+} */
+/* 로그인 */
+nav > header > .top > .setting > .login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border : 2px solid red; */
+    padding-right: 20px;
+    width: 100px;
+    height: 100%;
+}
+nav > header > .top > .setting > .login > a{
+    font-size: 15px;
+    padding: 5px 12px;
+    border-radius: 5px;
+    color: white;
+    background-color: var(--color--blue01);
+    font-family: var(--font--normal);
+}
+nav > header > .banner{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 35px;
+    align-self: center;
+    background-color: var(--color--blue01);
+}
+nav > header > .banner > div{
+    display: flex;
+    align-items: center;
+    width: 1024px;
+    height: 100%;
+}
+nav > header > .banner > div > a{
+    padding-left: 20px;
+    font-family: var(--font--normal);
+    font-weight: var(--weight--Light3);
+    color: var(--color--white01);
+    font-size: 15px;
+}
+nav > header > .banner > div > a:hover{
+    text-decoration: underline;
+}
+
+.post-form {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.post-input {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.posts {
+    text-align: center;
+}
+
+.post-list {
+    list-style: none;
+    padding: 0;
+}
+
+.post-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    background-color: #f9f9f9;
+}
+
+.post-button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}

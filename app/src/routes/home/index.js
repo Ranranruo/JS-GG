@@ -6,6 +6,7 @@ const router = express.Router();
 const ctrl = require("./router-ctrl");
 
 router.get('/',ctrl.homepage);
-router.get('/login', ctrl.loginpage);
+router.get('/search:name', ctrl.searchPC);
+router.get('/findparty', ctrl.findparty)
 
 module.exports = router;

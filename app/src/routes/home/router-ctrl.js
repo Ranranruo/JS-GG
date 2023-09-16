@@ -3,11 +3,15 @@
 const homepage = (req, res) =>{
     res.render("home/indexPC");
 }
-const loginpage = (req,res)=>{
-    res.render("home/login");
+const searchPC = (req,res)=>{
+    res.render("home/searchPC");
+}
+const findparty = (req,res)=>{
+    res.render("home/findpartyPC")
 }
 
 module.exports = {
     homepage,
-    loginpage
+    searchPC,
+    findparty,
 }

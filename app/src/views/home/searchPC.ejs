@@ -6,8 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JS.GG</title>
     <link rel="icon" sizes="16x16" href="image/home/indexPC/favicon.ico">
-    <link rel="stylesheet" href="css/home/indexPC.css">
-    <script src="js/home/indexPC.js" defer></script>
+    <link rel="stylesheet" href="/css/home/searchPC.css">
+    <script type="module" src="/js/search/fetchData.js"></script>
+    <script type="module" src="/js/search/Data.js"></script>
+    <script type="module" src="/js/search/changeUserData.js"></script>
+    <script type="module" src="/js/search/handlerCode.js"></script>
+    <script type="module" src="/js/home/searchPC.js" defer></script>
 </head>
 
 <body>
@@ -17,7 +21,7 @@
                 <div class="top"><!-- 배너 위 쪽 헤더 -->
                     <a href="#" class="header-logo">JS.GG</a><!-- 좌측 상단 로고 -->
                     <ul class="menu"> <!-- 헤더 메뉴 -->
-                        <li><a href="#">홈</a></li>
+                        <li><a href="/">홈</a></li>
                         <li><a href="#">챔피언</a></li>
                         <li><a href="#">랭킹</a></li>
                         <li><a href="/findparty">파티찾기</a></li>
@@ -103,88 +107,101 @@
                     </div>
                 </div>
             </header>
+        </nav>
+        <div class="search-con">
             <div class="search">
-                <p class="search-logo">JS.GG</p>
-                <div class="search-input">
-                    <div class="search-language">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="1.15em" viewBox="0 0 512 512">
-                            <path
-                                d="M57.7 193l9.4 16.4c8.3 14.5 21.9 25.2 38 29.8L163 255.7c17.2 4.9 29 20.6 29 38.5v39.9c0 11 6.2 21 16 25.9s16 14.9 16 25.9v39c0 15.6 14.9 26.9 29.9 22.6c16.1-4.6 28.6-17.5 32.7-33.8l2.8-11.2c4.2-16.9 15.2-31.4 30.3-40l8.1-4.6c15-8.5 24.2-24.5 24.2-41.7v-8.3c0-12.7-5.1-24.9-14.1-33.9l-3.9-3.9c-9-9-21.2-14.1-33.9-14.1H257c-11.1 0-22.1-2.9-31.8-8.4l-34.5-19.7c-4.3-2.5-7.6-6.5-9.2-11.2c-3.2-9.6 1.1-20 10.2-24.5l5.9-3c6.6-3.3 14.3-3.9 21.3-1.5l23.2 7.7c8.2 2.7 17.2-.4 21.9-7.5c4.7-7 4.2-16.3-1.2-22.8l-13.6-16.3c-10-12-9.9-29.5 .3-41.3l15.7-18.3c8.8-10.3 10.2-25 3.5-36.7l-2.4-4.2c-3.5-.2-6.9-.3-10.4-.3C163.1 48 84.4 108.9 57.7 193zM464 256c0-36.8-9.6-71.4-26.4-101.5L412 164.8c-15.7 6.3-23.8 23.8-18.5 39.8l16.9 50.7c3.5 10.4 12 18.3 22.6 20.9l29.1 7.3c1.2-9 1.8-18.2 1.8-27.5zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256z" />
-                        </svg>
-                        <select name="" id="">
-                            <option value="kr">KR</option>
-                            <option value="na">NA</option>
-                            <option value="jp">JP</option>
-                        </select>
-                    </div>
+                <div class="input">
+                    <select name="" id="">
+                        <option value="kr">KR</option>
+                        <option value="na">NA</option>
+                        <option value="jp">JP</option>
+                    </select>
                     <input id="search-input" type="text" placeholder="소환사명을 입력해주세요">
+                    <img src="" alt="">
                     <svg xmlns="http://www.w3.org/2000/svg" height="1.25em" viewBox="0 0 512 512">
                         <path
                             d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z" />
                     </svg>
                 </div>
-                <div class="background-image">
-                    <img class="img1" src="/image/home/indexPC/lux.png" alt="">
-                    <img class="img2" src="/image/home/indexPC/leona.png" alt="">
+            </div>
+        </div>
+        <div class="userdata-section">
+            <div class="userdata-con">
+                <div class="userdata-left">
+                    <img id="profileicon" src="" alt="Unknown">
+                    <div class="userdata-name">
+                        <p id="username">Unknown</p>
+                        <p id="userlevel">Unknown</p>
+                    </div>
+                </div>
+                <div class="userdata-right">
+                    <ul>
+                        <li>
+                            <div class="champion-con">
+                                <img id="championicon0" class="championicon" src="/image/home/search/none.png" alt="">
+                                <img id="championlevel0" class="championlevel"  src="" alt="">
+                            </div>
+                            <p id="championname0" class="championname"></p>
+                            <p id="championpoint0" class="championpoint"></p>
+                        </li>
+                        <li>
+                            <div class="champion-con">
+                                <img id="championicon1" class="championicon" src="/image/home/search/none.png" alt="">
+                                <img id="championlevel1" class="championlevel"  src="" alt="">
+                            </div>
+                            <p id="championname1" class="championname"></p>
+                            <p id="championpoint1" class="championpoint"></p>
+                        </li>
+                        <li>
+                            <div class="champion-con">
+                                <img id="championicon2" class="championicon" src="/image/home/search/none.png" alt="">
+                                <img id="championlevel2" class="championlevel"  src="" alt="">
+                            </div>
+                            <p id="championname2" class="championname"></p>
+                            <p id="championpoint2" class="championpoint"></p>
+                        </li>
+                        <li>
+                            <div class="champion-con">
+                                <img id="championicon3" class="championicon" src="/image/home/search/none.png" alt="">
+                                <img id="championlevel3" class="championlevel"  src="" alt="">
+                            </div>
+                            <p id="championname3" class="championname"></p>
+                            <p id="championpoint3" class="championpoint"></p>
+                        </li>
+                    </ul>
                 </div>
             </div>
-        </nav>
-        <div class="section-con">
-            <section>
-                <div class="content">
-                    <div class="text">
-                        <h1>챔피언 정보</h1>
-                        <p>여러가지 챔피언에 대해 알아보고 어떤 챔피언이 자신과 맞는지 알아보세요!</p>
-                    </div>
-                    <div class="img">
-                        <img src="/image/home/indexPC/section/section1-1.jpg" alt="">
-                    </div>
-                </div>
-            </section>
-            <section>
-                <div class="content">
-                    <div class="img">
-                        <img src="/image/home/indexPC/section/section2-1.jpg" alt="">
-                    </div>
-                    <div class="text">
-                        <h1>파티 찾기</h1>
-                        <p>함께 소환사의 협곡, 칼바람 협곡,전력적 팀 전투 등을 플레이할 소환사를 찾아보세요!</p>
-                    </div>
-                </div>
-            </section>
-            <section>
-                <div class="content">
-                    <div class="text">
-                        <h1>내 적성에 맞는 포지션찾기</h1>
-                        <p>나에게 맞는 포지션은 어디일까요?? 롤 성격유형 검사로 자신에게 맞는 포지션을 알아보세요!</p>
-                    </div>
-                    <div class="img">
-                        <img src="/image/home/indexPC/section/section3-1.gif" alt="">
-                        <img src="/image/home/indexPC/section/section3-2.png" alt="">
-                    </div>
-                </div>
-            </section>
         </div>
-        <div class="footer-con">
-            <footer>
-                <div class="footer-top">
-                    <div class="footer-logo">JS.GG</div>
-                </div>
-                <div class="footer-bottom">
-                    <div class="footer-nav">
-                        <ul>
-                            <li><a href="#">홈</a></li>
-                            <li><a href="#">챔피언</a></li>
-                            <li><a href="#">랭킹</a></li>
-                            <li><a href="#">파티찾기</a></li>
-                            <li><a href="#">롤비티아이</a></li>
-                        </ul>
+        <div class="userdata-section2">
+            <div class="userdata-con">
+                <div class="userdata-rank">
+                    <div class="solo rank">
+                        <p class="ranktype">솔로랭크</p>
+                        <div id="sololppiechart" class="lppiechart">
+                            <div class="background">
+                                <img id="soloemblem" class="emblem" src="/image/home/search/rankedemblem/UNRANKED.png" alt="">
+                            </div>
+                        </div>
+                        <p id="solotier" class="tier">Unranked</p>
+                        <p id="solowincount" class="wincount"></p>
+                        <p id="solowinrate" class="winrate"></p>
+                        <p id="sololp" class="lp"></p>
                     </div>
-                    <p class="copyright">Copyright 2023. Team '신민석과 이준건'. ALL rights reserved.</p>
+                    <div class="flex rank">
+                        <p class="ranktype">자유랭크</p>
+                        <div id="flexlppiechart" class="lppiechart">
+                            <div class="background">
+                                <img id="flexemblem" class="emblem" src="/image/home/search/rankedemblem/UNRANKED.png" alt="">
+                            </div>
+                        </div>
+                        <p id="flextier" class="tier">Unranked</p>
+                        <p id="flexwincount" class="wincount"></p>
+                        <p id="flexwinrate" class="winrate"></p>
+                        <p id="flexlp" class="lp"></p>
+                    </div>
                 </div>
-            </footer>
+            </div>
         </div>
-        
     </div>
 </body>
 
